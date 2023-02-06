@@ -33,7 +33,7 @@ public class Main {
     private static final String ANSI_CYAN = "\u001B[36m";
     private static final String ANSI_WHITE = "\u001B[37m";
 
-    public static void main (String args[]) {
+    public static void main (String[] args) {
         ////////////////
         // Parameters //
         ////////////////
@@ -95,87 +95,107 @@ public class Main {
         // Get attributes from the user //
         //////////////////////////////////
         for (int i = 0; i < args.length; i++) {
-            if (args[i].equals("-w") || args[i].equals("--workfolder")) {
-                work_folder = args[i+1];
-                i++;
-            }
-            else if (args[i].equals("-we") || args[i].equals("--weights")) {
-                weights_fitness_ga = args[i+1];
-                i++;
-            }
-            else if (args[i].equals("-p") || args[i].equals("--protocol")) {
-                protocol = args[i+1];
-                i++;
-            }
-            else if (args[i].equals("-b") || args[i].equals("--bpf")) {
-                tshark_bpf = "tcp.flags.syn==1";
-            }
-            else if (args[i].equals("-pp") || args[i].equals("--packet-protocol")) {
-                protocol_filter = args[i+1];
-                i++;
-            }
-            else if (args[i].equals("-r") || args[i].equals("--run")) {
-                run_no = Integer.parseInt(args[i+1]);
-                i++;
-            }
-            else if (args[i].equals("-pop") || args[i].equals("--population")) {
-                population_ga = Integer.parseInt(args[i+1]);
-                i++;
-            }
-            else if (args[i].equals("-m") || args[i].equals("--mode")) {
-                mode = Integer.parseInt(args[i+1]);
-                i++;
-            }
-            else if (args[i].equals("-tg") || args[i].equals("--threshold-group")) {
-                threshold_group = Double.parseDouble(args[i+1]);
-                i++;
-            }
-            else if (args[i].equals("-c") || args[i].equals("--classifier")) {
-                classifier = Integer.parseInt(args[i+1]);
-                i++;
-            }
-            else if (args[i].equals("-co") || args[i].equals("--config")) {
-                config_path = args[i+1];
-                i++;
-            }
-            else if (args[i].equals("-h") || args[i].equals("--help")) {
-                help();
-                System.exit(0);
-            }
-            else if (args[i].equals("-v") || args[i].equals("--validation")) {
-                cross_validation = Integer.parseInt(args[i+1]);
-                i++;
-            }
-            else if (args[i].equals("-vb") || args[i].equals("--verbose")) {
-                verbose = true;
-            }
-            else if (args[i].equals("-k") || args[i].equals("--k")) {
-                k = Integer.parseInt(args[i+1]);
-                i++;
-            }
-            else if (args[i].equals("-i") || args[i].equals("--iteration")) {
-                iteration = Integer.parseInt(args[i+1]);
-                i++;
-            }
-            else if (args[i].equals("-t") || args[i].equals("--threads")) {
-                max_threads = Integer.parseInt(args[i+1]);
-                i++;
-            }
-            else if (args[i].equals("-g") || args[i].equals("--group")) {
-                group = Integer.parseInt(args[i+1]);
-                i++;
-            }
-            else if (args[i].equals("-os") || args[i].equals("--os-name")) {
-                class_os = args[i+1];
-                i++;
-            }
-            else if (args[i].equals("-wp") || args[i].equals("--weka-path")) {
-                weka_path = args[i+1];
-                i++;
-            }
-            else {
-                System.out.println(ANSI_RED + "Unknown parameter '" + args[i] + "' " + ANSI_GREEN + "Type -h to see the help menu." + ANSI_RESET);
-                System.exit(0);
+            switch (args[i]) {
+                case "-w":
+                case "--workfolder":
+                    work_folder = args[i + 1];
+                    i++;
+                    break;
+                case "-we":
+                case "--weights":
+                    weights_fitness_ga = args[i + 1];
+                    i++;
+                    break;
+                case "-p":
+                case "--protocol":
+                    protocol = args[i + 1];
+                    i++;
+                    break;
+                case "-b":
+                case "--bpf":
+                    tshark_bpf = "tcp.flags.syn==1";
+                    break;
+                case "-pp":
+                case "--packet-protocol":
+                    protocol_filter = args[i + 1];
+                    i++;
+                    break;
+                case "-r":
+                case "--run":
+                    run_no = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "-pop":
+                case "--population":
+                    population_ga = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "-m":
+                case "--mode":
+                    mode = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "-tg":
+                case "--threshold-group":
+                    threshold_group = Double.parseDouble(args[i + 1]);
+                    i++;
+                    break;
+                case "-c":
+                case "--classifier":
+                    classifier = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "-co":
+                case "--config":
+                    config_path = args[i + 1];
+                    i++;
+                    break;
+                case "-h":
+                case "--help":
+                    help();
+                    System.exit(0);
+                case "-v":
+                case "--validation":
+                    cross_validation = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "-vb":
+                case "--verbose":
+                    verbose = true;
+                    break;
+                case "-k":
+                case "--k":
+                    k = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "-i":
+                case "--iteration":
+                    iteration = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "-t":
+                case "--threads":
+                    max_threads = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "-g":
+                case "--group":
+                    group = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "-os":
+                case "--os-name":
+                    class_os = args[i + 1];
+                    i++;
+                    break;
+                case "-wp":
+                case "--weka-path":
+                    weka_path = args[i + 1];
+                    i++;
+                    break;
+                default:
+                    System.out.println(ANSI_RED + "Unknown parameter '" + args[i] + "' " + ANSI_GREEN + "Type -h to see the help menu." + ANSI_RESET);
+                    System.exit(0);
             }
         }
 
@@ -331,8 +351,6 @@ public class Main {
                     no_of_lines++;
 
             reader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -354,8 +372,6 @@ public class Main {
                     lines.add(line);
 
             reader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -464,8 +480,6 @@ public class Main {
             if (filename_prefix.equals("train"))
                 outfile2.close();
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -491,8 +505,6 @@ public class Main {
 
             // Close file stream
             mergedfile.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -594,9 +606,9 @@ public class Main {
                 saver.setInstances(data);
                 saver.setFile(new File(protocol_file_path + "/" + filename_prefix + "_instance_" + (i+1) + ".arff"));
                 saver.writeBatch();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-            } catch(Exception e) {}
+            }
         }
 
         merge_train_or_test_files(protocol_file_path, no_of_os_instances, filename_prefix);
@@ -621,9 +633,9 @@ public class Main {
             saver.setInstances(data);
             saver.setFile(new File(protocol_file_path + "/" + filename_prefix + "_merged.arff"));
             saver.writeBatch();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch(Exception e) {}
+        }
     }
 
     ////////////////////////////////
@@ -643,11 +655,9 @@ public class Main {
             parameters_to_be_deleted = in.readLine();
 
             in.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        };
+        }
 
         return parameters_to_be_deleted;
     }
@@ -715,8 +725,6 @@ public class Main {
             }
 
             reader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -765,19 +773,18 @@ public class Main {
             BufferedWriter output_text = new BufferedWriter(new FileWriter(new File(protocol_output_file), false));
 
             int executed = 0;
-            int pool_size = no_of_features;
 
-            while (executed < pool_size) {
-                ExecutorService executor = Executors.newFixedThreadPool(Math.min(max_threads, pool_size - executed));
+            while (executed < no_of_features) {
+                ExecutorService executor = Executors.newFixedThreadPool(Math.min(max_threads, no_of_features - executed));
 
-                for (int i = executed; i < (executed + Math.min(max_threads, pool_size - executed)); i++)
+                for (int i = executed; i < (executed + Math.min(max_threads, no_of_features - executed)); i++)
                     executor.execute(new FindNonNullFeaturesThread(packet_protocol, fields.get(i), no_of_pcaps, pcapnames, work_folder, output_text, i+1, no_of_features, tshark_bpf)); //calling execute method of ExecutorService
 
                 executor.shutdown();
 
                 while (!executor.isTerminated()) {}
 
-                executed += Math.min(max_threads, pool_size - executed);
+                executed += Math.min(max_threads, no_of_features - executed);
             }
 
             output_text.close();
@@ -790,7 +797,7 @@ public class Main {
     // Returns the names of files in a folder in an ArrayList //
     ////////////////////////////////////////////////////////////
     public static ArrayList<String> get_files_in_folder(String folder) {
-        ArrayList<String> results = new ArrayList<String>();
+        ArrayList<String> results = new ArrayList<>();
 
         File[] files = new File(folder).listFiles(new FileFilter() {
             @Override
@@ -811,7 +818,7 @@ public class Main {
     // Returns the names of files in a folder in an ArrayList //
     ////////////////////////////////////////////////////////////
     public static ArrayList<String> get_number_of_OSes(String folder) {
-        ArrayList<String> results = new ArrayList<String>();
+        ArrayList<String> results = new ArrayList<>();
 
         File[] files = new File(folder).listFiles(new FileFilter() {
             @Override
@@ -994,7 +1001,7 @@ class ExtractFeaturesThread extends Thread {
     public void deleteDuplicates(String input_filename, String output_filename) {
         try {
             BufferedReader in = new BufferedReader(new FileReader(input_filename));
-            Set<String> lines = new LinkedHashSet<String>();
+            Set<String> lines = new LinkedHashSet<>();
 
             for (String line; (line = in.readLine()) != null;)
                 lines.add(line); // does nothing if duplicate is already added
@@ -1006,11 +1013,9 @@ class ExtractFeaturesThread extends Thread {
 
             in.close();
             out.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        };
+        }
 
         new File(input_filename).delete();
     }
@@ -1020,7 +1025,7 @@ class ExtractFeaturesThread extends Thread {
         BufferedWriter writer = null;
 
         //Create an ArrayList object to hold the lines of input file
-        ArrayList<String> lines = new ArrayList<String>();
+        ArrayList<String> lines = new ArrayList<>();
 
         try {
             //Creating BufferedReader object to read the input file

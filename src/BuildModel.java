@@ -37,8 +37,6 @@ public class BuildModel {
             }
 
             reader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,7 +52,7 @@ public class BuildModel {
             e.printStackTrace();
         }
 
-        if ((traindata == null)) {
+        if (traindata == null) {
             System.out.println("ErRoR!");
             System.exit(0);
         }

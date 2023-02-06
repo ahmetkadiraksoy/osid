@@ -108,8 +108,6 @@ public class GA {
                         System.out.println(ANSI_BLUE + line.split(",")[0] + ANSI_RESET);
                 i++;
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

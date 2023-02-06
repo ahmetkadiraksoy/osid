@@ -124,8 +124,6 @@ public class Classify {
                 else
                     break;
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -227,8 +225,6 @@ public class Classify {
             System.out.println();
             System.out.println("Performance: " + result);
             System.out.println("No. of groups: " + (correctly_classified + incorrectly_classified));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -322,8 +318,6 @@ public class Classify {
             while ((line = reader.readLine()) != null)
                 if (!line.trim().isEmpty())
                     no_of_lines++;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

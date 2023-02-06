@@ -46,8 +46,6 @@ public class GAFitnessCalc {
                             count++;
                             break;
                         }
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

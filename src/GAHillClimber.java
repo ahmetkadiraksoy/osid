@@ -20,7 +20,7 @@ public class GAHillClimber {
     public static final String ANSI_WHITE = "\u001B[37m";
 
     public void execute(String weka_path, int classifier, String filename, int iteration, String work_folder, int no_of_features, int cross_validation, int population, String weights, int max_threads, int no_of_os_instances) {
-        ArrayList<String> solutions = new ArrayList<String>();
+        ArrayList<String> solutions = new ArrayList<>();
         String solution = null;
         GAIndividual test = new GAIndividual(no_of_features, weka_path, classifier, work_folder, weights, no_of_os_instances);
         GAIndividual test2 = new GAIndividual(no_of_features, weka_path, classifier, work_folder, weights, no_of_os_instances);
@@ -129,8 +129,6 @@ public class GAHillClimber {
                         System.out.println(ANSI_RED + line.split(",")[0] + ANSI_RESET);
                 i++;
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
